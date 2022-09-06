@@ -93,8 +93,13 @@ class ConstMap : HashMap<String?, ConstGroup?>() {
         for (gg in keys) out += get(gg).toString()
         return out
         }
-
-    val constAll: ConstList get() {
+    fun getConstValue(gName : String?, key :Int) : ConstValue?{
+        val gmap = get(gName)
+        if (gmap==null)
+            return null;
+        return gmap.get(key)
+        }
+    fun constAll(): ConstList{
             val out = ConstList()
             for (gg in keys) {
                 val group = get(gg)
@@ -103,8 +108,7 @@ class ConstMap : HashMap<String?, ConstGroup?>() {
                 }
             return out
             }
-    val constByGroups: ArrayList<ConstList>
-        get() {
+    fun constByGroups(): ArrayList<ConstList>{
             val out = ArrayList<ConstList>()
             for (gg in keys) {
                 val group = get(gg)

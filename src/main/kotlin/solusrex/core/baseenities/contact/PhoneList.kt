@@ -1,4 +1,4 @@
-package solusrex.core.baseenities
+package solusrex.core.baseenities.contact
 
 import java.util.*
 

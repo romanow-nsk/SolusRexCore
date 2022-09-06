@@ -31,6 +31,22 @@ public class CoreValues {
         const val PopupMessageDelay = 6         // Тайм-аут всплывающего окна
         const val PopupLongDelay = 20           // Тайм-аут всплывающего окна
         const val SparkThreadPoolSize = 10      // Размер буферного пула потоков Spark
+
+        //----------------- Типы артефактов-------------------------------------
+        @CONST(group = "ArtifactType", title = "Не определен", className ="Undefined")
+        val ArtifactNoType = 0
+        @CONST(group = "ArtifactType", title = "Фото",className = "Image")
+        val ArtifactImageType = 1
+        @CONST(group = "ArtifactType", title = "Видео", className = "Video")
+        val ArtifactVideoType = 2
+        @CONST(group = "ArtifactType", title = "Аудио", className = "Audio")
+        val ArtifactAudioType = 3
+        @CONST(group = "ArtifactType", title = "Текст", className ="Text")
+        val ArtifactTextType = 4
+        @CONST(group = "ArtifactType", title = "Документ", className ="Document")
+        val ArtifactDocType = 5
+        @CONST(group = "ArtifactType", title = "Прочее", className ="Other" )
+        val ArtifactOtherType = 6
         //-------------------- Типы DAO ----------------------------------------------
         @CONST(group = "DAOType", title = "int", className = "int")
         val DAOInt: Int = 0
@@ -119,12 +135,25 @@ public class CoreValues {
         val NSInProcess = 3
         @CONST(group = "NotificationState", title = "Закрыто")
         val NSClosed = 4
-        //--------------------------------------------------------------------------------------------------
+        //----------------------- Отчеты  --------------------------------------------------------------------------------
+        @CONST(group = "Report", title = "Прочее")
+        val RepOther: Int = 0
+
+        //-------------------- Тип сохраняемого отчета --------------------------------------------------------------------
+        @CONST(group = "ReportType", title = "Нет")
+        val ReportNO = 0
+        @CONST(group = "ReportType", title = "pdf")
+        val ReportPDF = 1
+        @CONST(group = "ReportType", title = "xms")
+        val ReportXML = 2
+        @CONST(group = "ReportType", title = "html")
+        val ReportHTML = 3
+        //--------------------------------------------------------------------------------------------------------------
         @JvmStatic
         fun main(a: Array<String>) {
             val map = ConstMap()
             map.createConstList(CoreValues::class.java)
-            println(map.constAll)
+            println(map.constAll())
         }
      }
 }

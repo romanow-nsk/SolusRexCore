@@ -5,14 +5,13 @@ class EntityLink<T : Entity?> {
     var ref: T? = null
     @Transient
     var typeT: Class<*>? = null // Класс параметра шаблона для рефлексионной загрузки ссылок
-    fun EntityLink() {}
-    fun EntityLink(type0: Class<*>?) {
+    constructor() {}
+    constructor(type0: Class<*>?) {
         typeT = type0 }
     constructor(vv: T?) {
         ref = vv }
     constructor(id: Long) {
         oid = id }
-    constructor() {}
     constructor(id: Long, ref0: T?) {
         oid = id
         ref = ref0 }

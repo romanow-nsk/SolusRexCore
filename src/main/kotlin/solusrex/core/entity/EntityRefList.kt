@@ -4,11 +4,11 @@ class EntityRefList<T : Entity?> : ArrayList<T> {
     @Transient
     var typeT: Class<*>? = null
     @Transient
-    private var numMap: java.util.HashMap<Long, T>? = null
+    private var numMap: HashMap<Long, T>? = null
     @Transient
-    private var nameMap: java.util.HashMap<String, T>? = null
+    private var nameMap: HashMap<String, T>? = null
     @Transient
-    private var titleMap: java.util.HashMap<String, T>? = null
+    private var titleMap: HashMap<String, T>? = null
     fun createMap() {
         nameMap = HashMap()
         numMap = HashMap()

@@ -1,15 +1,15 @@
-package solusrex.core.baseenities
+package solusrex.core.baseenities.contact
 
 import solusrex.core.common.I_Name
 import solusrex.core.common.I_TypeName
 import solusrex.core.dao.DAO
 
-open class Contact : DAO(), I_TypeName, I_Name {
+open class Contact : DAO, I_TypeName, I_Name {
     var value: String? = ""
-    fun Contact(vv: String?) {
+    constructor(vv: String) {
         value = vv
         }
-    fun Contact() {}
+    constructor() {}
     override fun name(): String? {
         return if (!valid()) "???" else value
         }
@@ -25,7 +25,7 @@ open class Contact : DAO(), I_TypeName, I_Name {
     open fun valid(): Boolean {
         return false
         }
-    open fun parseAndSet(ss: String?): Boolean {
+    open fun parseAndSet(ss: String): Boolean {
         return false
         }
     override fun toString(): String {
@@ -35,7 +35,7 @@ open class Contact : DAO(), I_TypeName, I_Name {
         return value
         }
     @Throws(Exception::class)
-    fun parseValue(ss: String?) {
+    fun parseValue(ss: String) {
         value = ss
         }
     }

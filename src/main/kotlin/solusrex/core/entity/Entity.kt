@@ -11,7 +11,7 @@ import solusrex.core.mongo.I_MongoRW
 open class Entity : DAO, I_XStream, I_Name {
     var oid: Long = 0
     var isValid = true
-    fun toFullString(): String {
+    open fun toFullString(): String {
         return "[$oid] " }
     override fun toString(): String {
         return "[$oid] "
@@ -33,7 +33,7 @@ open class Entity : DAO, I_XStream, I_Name {
         return gs.toJson(this)
         }
     //-------------------------------------------------------------------------------------------------------------
-    override fun setAliases(xs: XStream?) {
+    override fun setAliases(xs: XStream) {
         xs!!.alias("Entity", Entity::class.java)
         xs!!.useAttributeFor(Entity::class.java, "oid")
         }

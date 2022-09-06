@@ -1,9 +1,9 @@
-package solusrex.core.baseenities
+package solusrex.core.baseenities.contact
 
 import solusrex.core.common.Utility
 
 class Phone : Contact {
-    constructor(vv:String?) {
+    constructor(vv:String) {
         parseAndSet(vv)
         }
     constructor() {}
@@ -30,7 +30,7 @@ class Phone : Contact {
     override fun valid(): Boolean {
         return valid(value)
         }
-    override fun parseAndSet(ss: String?): Boolean {
+    override fun parseAndSet(ss: String): Boolean {
         val zz = testMobile(ss!!)
         if (zz != null) {
             value = zz

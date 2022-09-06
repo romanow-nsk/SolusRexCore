@@ -1,24 +1,26 @@
-package solusrex.core.baseenities
+package solusrex.core.baseenities.user
 
+import com.thoughtworks.xstream.XStream
+import solusrex.core.baseenities.contact.Phone
 import solusrex.core.entity.Entity
 
-class Account : Entity() {
+class Account : Entity {
     var login = ""
     var loginPhone = Phone()
     var password = ""
-    fun Account(login0: String, loginPhone0: String?, password0: String) {
+    constructor(login0: String, loginPhone0: String, password0: String) {
         login = login0
         loginPhone.parseAndSet(loginPhone0)
         password = password0
         }
-    fun Account() {}
+    constructor() {}
     fun getLoginPhone(): String? {
         return if (!loginPhone.isMobile()) "" else loginPhone.mobile()
         }
     fun loginPhoneValid(): Boolean {
         return loginPhone.isMobile()
         }
-    fun setLoginPhone(ss: String?) {
+    fun setLoginPhone(ss: String) {
         loginPhone.parseAndSet(ss)
         }
     override fun toString(): String {
@@ -27,12 +29,16 @@ class Account : Entity() {
     override fun title(): String {
         return "$login / $loginPhone"
         }
+    override fun setAliases(xs: XStream) {
+        TODO("Not yet implemented")
+        }
+
     fun load(proto: Account) {
         password = proto.password
         login = proto.login
         loginPhone = Phone(proto.getLoginPhone().toString())
         }
-    fun Account(proto: Account) {
+    constructor(proto: Account) {
         password = proto.password
         login = proto.login
         loginPhone = Phone(proto.getLoginPhone().toString())
