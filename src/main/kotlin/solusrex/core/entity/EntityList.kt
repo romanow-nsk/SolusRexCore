@@ -34,7 +34,7 @@ class EntityList<T : Entity?> : ArrayList<T> {
         for (i in 0 until size) {
             val uu: Entity? = get(i)
             if (i != 0) out += "\n"
-            out += uu!!.title
+            out += uu!!.title()
             }
         return out
         }
@@ -70,7 +70,7 @@ class EntityList<T : Entity?> : ArrayList<T> {
     fun sortByTitle() {
         sort(object : I_Compare {
             override fun compare(one: Entity?, two: Entity?): Int {
-                return one!!.title.compareTo(two!!.title)
+                return one!!.title().compareTo(two!!.title())
                 }
             })
         }

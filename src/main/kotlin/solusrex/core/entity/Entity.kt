@@ -16,16 +16,18 @@ open class Entity : DAO, I_XStream, I_Name {
     override fun toString(): String {
         return "[$oid] "
         }
-    fun toShortString(): String {
+    open fun toShortString(): String {
         return "" }
-    val title: String
-        get() = toString()
+    open fun title(): String{
+        return toString()
+        }
     constructor(id0: Long) {
         oid = id0 }
     constructor() {
         oid = 0 }
-    val titleLevel: Int
-        get() = 0
+    fun titleLevel(): Int{
+        return 0
+        }
     fun toJSON(): String {
         val gs = Gson()
         return gs.toJson(this)
@@ -35,12 +37,14 @@ open class Entity : DAO, I_XStream, I_Name {
         xs!!.alias("Entity", Entity::class.java)
         xs!!.useAttributeFor(Entity::class.java, "oid")
         }
-    fun objectName(): String {            // ПОЛИМОРФНЫЙ ВЫЗОВ ДЛЯ ШАБЛОНА
-        return name
+    open fun objectName(): String{            // ПОЛИМОРФНЫЙ ВЫЗОВ ДЛЯ ШАБЛОНА
+        return name()
         }
-    override val name: String
-        get() = ""
+    override fun name() : String{
+        return ""
+        }
     //------------------------------------------------------------------------------------------------- Для мапов ------
-    val keyNum: Long
-        get() = -1
+    fun keyNum() : Long {
+        return -1L
+        }
 }

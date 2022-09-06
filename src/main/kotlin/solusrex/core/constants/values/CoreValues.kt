@@ -10,6 +10,27 @@ public class CoreValues {
         const val GetAllModeDeleted = 2     // Удаленные
         const val noFieldErrorCount = 100   // Количество накопленных ошибок ДО ИСКЛЮЧЕНИЯ
         const val DAOAccessPrefix = "solusrex.core.dao.access.DAO"  // Префикс имени класса доступа DAO
+        //------------- Аутентификация и сессия ---------------------------------------------------
+        const val SessionTokenLength = 32           // Размер сессионного ключа
+        const val SessionSilenceTime = 30 * 60      // Время молчания до разрыва сессии (сек)
+        const val SessionCycleTime = 30             // Цикл проверки сессией (сек)
+        const val ClockCycleTime = 30               // Цикл проверки событий (процессы) (сек)
+        const val SessionHeaderName = "SessionToken"// Параметр заголовка - id сессии
+        const val JWTSessionSecretKey = "FireFighterTopSecret"
+        const val JWTSessionMode = true
+        //-----------------------------------------------------------------------------------------
+        const val ConsoleLogSize: Int = 1000    // Количество строк лога
+        const val CKeepALiveTime = 10           // Интервал времени проверки соединения
+        const val DebugTokenPass = "pi31415926" // Пароль отладочного токена
+        const val PopupListMaxSize = 25         // Максимальный размер выпадающего списка
+        const val ServerRebootDelay = 10        // Задержка сервера при перезагрузке
+        const val ConsolePrintPause = 10        // Тайм-аут паузы вывода при завуске сторонней команды
+        const val HTTPTimeOut = 60              // Тайм-аут клиента
+        const val BackgroundOperationMaxDelay = 300 //
+        const val FatalExceptionStackSize = 20  // Стек вызовов при исключении
+        const val PopupMessageDelay = 6         // Тайм-аут всплывающего окна
+        const val PopupLongDelay = 20           // Тайм-аут всплывающего окна
+        const val SparkThreadPoolSize = 10      // Размер буферного пула потоков Spark
         //-------------------- Типы DAO ----------------------------------------------
         @CONST(group = "DAOType", title = "int", className = "int")
         val DAOInt: Int = 0

@@ -15,9 +15,9 @@ class EntityRefList<T : Entity?> : ArrayList<T> {
         titleMap = HashMap()
         for (ent in this) {
             if (ent == null) continue
-            titleMap!![ent.title] = ent as T
-            nameMap!![ent.name] = ent as T
-            numMap!![ent.keyNum] = ent as T
+            titleMap!![ent.title()] = ent as T
+            nameMap!![ent.name()] = ent as T
+            numMap!![ent.keyNum()] = ent as T
             }
         sortByKeyNum()
         }
@@ -101,10 +101,10 @@ class EntityRefList<T : Entity?> : ArrayList<T> {
         add(ent as T)
         }
     val title: String
-        get() = if (size == 0) "" else get(0)!!.title + if (size == 1) "" else "[$size] "
+        get() = if (size == 0) "" else get(0)!!.title() + if (size == 1) "" else "[$size] "
 
     fun sortByTitle() {
-        sortWith(Comparator<Entity?> { o1, o2 -> o1!!.title.compareTo(o2!!.title) })
+        sortWith(Comparator<Entity?> { o1, o2 -> o1!!.title().compareTo(o2!!.title()) })
         }
 
     @JvmOverloads
@@ -119,7 +119,7 @@ class EntityRefList<T : Entity?> : ArrayList<T> {
 
     fun sortByKeyNum() {
         sortWith(Comparator<Entity?> { o1, o2 ->
-            val vv: Long = o1!!.keyNum - o2!!.keyNum
+            val vv: Long = o1!!.keyNum() - o2!!.keyNum()
             if (vv == 0L) 0
             if (vv < 0) -1 else 1
         })
