@@ -2,6 +2,7 @@ package solusrex.core.constants.values
 
 import solusrex.core.constants.CONST
 import solusrex.core.constants.ConstMap
+import solusrex.core.constants.CoreSingleton
 
 public class CoreValues {
     public companion object {
@@ -31,7 +32,10 @@ public class CoreValues {
         const val PopupMessageDelay = 6         // Тайм-аут всплывающего окна
         const val PopupLongDelay = 20           // Тайм-аут всплывающего окна
         const val SparkThreadPoolSize = 10      // Размер буферного пула потоков Spark
-
+        //----------------------------------------------------------------------
+        open fun title(group: String, cid: Int): String? {
+            return CoreSingleton.get().constMap.title(group, cid)
+            }
         //----------------- Типы артефактов-------------------------------------
         @CONST(group = "ArtifactType", title = "Не определен", className ="Undefined")
         val ArtifactNoType = 0
@@ -135,10 +139,16 @@ public class CoreValues {
         val NSInProcess = 3
         @CONST(group = "NotificationState", title = "Закрыто")
         val NSClosed = 4
+        //----------------------- Типы выполнения уведомлений ---------------------------------------------
+        @CONST(group = "NotificationMode", title = "Принудительно")
+        val NMHard = 0
+        @CONST(group = "NotificationMode", title = "После завершения операции")
+        val NMDeffered = 1
+        @CONST(group = "NotificationMode", title = "С подтверждением")
+        val NMUserAck = 2
         //----------------------- Отчеты  --------------------------------------------------------------------------------
         @CONST(group = "Report", title = "Прочее")
         val RepOther: Int = 0
-
         //-------------------- Тип сохраняемого отчета --------------------------------------------------------------------
         @CONST(group = "ReportType", title = "Нет")
         val ReportNO = 0

@@ -27,7 +27,6 @@ class DAOEntityLinkList : I_DAOAccess {
                 return
             val two: Entity = link.typeT!!.newInstance() as Entity
             if (!mongo.getById(two, link.oid, level - 1, false)) {
-                //System.out.println("Не найден " + cname + " id=" + link.getOid());
                 link.oid=0
                 link.ref=null
                 throw UniException.user("Не найден ${dao.javaClass.simpleName}.${ff.name} id=${link.oid}") as Throwable

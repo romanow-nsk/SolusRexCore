@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="SolusRexCore" target="1.5" />
+      <module name="SolusRexCore" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

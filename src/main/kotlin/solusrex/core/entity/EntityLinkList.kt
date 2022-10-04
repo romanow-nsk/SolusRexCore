@@ -1,7 +1,5 @@
 package solusrex.core.entity
 
-import sun.plugin.com.JavaClass
-
 class EntityLinkList<T : Entity?> : ArrayList<EntityLink<T>?> {
     @Transient
     var typeT: Class<*>? = null

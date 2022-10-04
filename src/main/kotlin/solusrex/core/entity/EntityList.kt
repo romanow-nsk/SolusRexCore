@@ -4,7 +4,7 @@ import com.google.gson.Gson
 import solusrex.core.common.DBRequest
 import solusrex.core.common.UniException
 
-class EntityList<T : Entity?> : ArrayList<T> {
+open class EntityList<T : Entity?> : ArrayList<T> {
     constructor() {}
     fun getById(userId: Long): Entity? {
         for (uu in this) if (uu!!.oid=== userId) return uu
